@@ -83,9 +83,10 @@ def shift_reduce_parser(tokens:list):
                     return "Error"
                 stack.append(int(action[state][lhs]))
             
-            if action[state] == "E" or "T" or "F":
+            elif action[state] == "E" or "T" or "F":
                 state = int(action_entry)
                 stack.append(state)
+                i+=1
 
 
             else:
@@ -146,5 +147,5 @@ while True:
         print(result)
 
 
-    except:
+    except EOFError:
         break
